@@ -82,5 +82,11 @@
     "src",
     "lib",
     "esm"
+  ],
+  "keywords": [
+    "react",
+    "context",
+    "reducer",
+    "store"
   ]
 }
