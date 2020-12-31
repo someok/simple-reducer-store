@@ -75,6 +75,17 @@ const [useAuthStore, AuthStoreProvider, AuthContext] = createReducerContext(...m
 export {useTestStore, TestStoreProvider, TestContext};
 ```
 
+**App.js**
+
+```javascript
+ReactDOM.render(
+    <TestStoreProvider>
+        <App />
+    </TestStoreProvider>,
+    document.getElementById('root')
+);
+```
+
 **TestPage.js**
 
 ```javascript
