@@ -36,7 +36,10 @@ import {Action, Dispatch, Middleware, PredefineActions} from './types';
  * @return 返回 function，参数中可定义 initialState, ...actions
  */
 export default function createReducerContext<State>(...middlewares: Middleware<State>[]) {
-    return (initialState: State, ...actions: PredefineActions[]) => {
+    return (
+        initialState: State,
+        ...actions: PredefineActions[]
+    ): [() => [State, Dispatch], React.FC, Context<any>] => {
         const StoreContext: Context<any> = createContext(undefined);
         const useReducer = createReducer(...middlewares);
 
