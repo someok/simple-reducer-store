@@ -1,6 +1,6 @@
 {
   "name": "@someok/simple-reducer-store",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React reducer context store, redux replace",
   "main": "lib/index.js",
   "module": "esm/index.js",
