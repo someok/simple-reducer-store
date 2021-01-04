@@ -2,13 +2,15 @@ import isEmpty from 'lodash/isEmpty';
 import isPlainObject from 'lodash/isPlainObject';
 import isFunction from 'lodash/isFunction';
 
+import {PredefineActions} from './types';
+
 /**
  * 组合多个 reducer action 到一个对象中。
  *
  * @param actions 格式为： {actionName: (draft, payload) => {draft.xxx = yyy}}
  * @return {{}} 多个 action 组合后的对象
  */
-export default function composeReducerActions(...actions) {
+export default function composeReducerActions(...actions: PredefineActions[]) {
     const composeActions = {};
 
     if (isEmpty(actions)) {

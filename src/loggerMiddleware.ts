@@ -1,5 +1,6 @@
 import {createLogger} from 'redux-logger';
-import {convertActionParam, ActionParam} from './actionUtils';
+import {convertActionParam} from './actionUtils';
+import {Action} from './types';
 
 /**
  * 由于 action 的格式可能是 string、array、object，所以这儿重新定义 redux-logger 的标题输出格式。
@@ -9,7 +10,7 @@ import {convertActionParam, ActionParam} from './actionUtils';
  * @param took 执行花费时间
  * @return {string} 格式化后的 title
  */
-function titleFormatter(action: ActionParam, time: string, took: number): string {
+function titleFormatter(action: Action, time: string, took: number): string {
     const convertAction = convertActionParam(action);
     const parts = ['action'];
 

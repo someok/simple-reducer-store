@@ -4,6 +4,7 @@ import produce from 'immer';
 
 import composeReducerActions from './composeReducerActions';
 import {convertActionParam} from './actionUtils';
+import {Action, Dispatch, Middleware, PredefineActions} from './types';
 
 /**
  * 基于 react-use createReducer 和 immer 的 react context 定义，用于代替 redux。
@@ -34,8 +35,8 @@ import {convertActionParam} from './actionUtils';
  * @param middlewares redux 格式的 middleware
  * @return 返回 function，参数中可定义 initialState, ...actions
  */
-export default function createReducerContext(...middlewares) {
-    return (initialState, ...actions) => {
+export default function createReducerContext<State>(...middlewares: Middleware<State>[]) {
+    return (initialState: State, ...actions: PredefineActions[]) => {
         const StoreContext: Context<any> = createContext(undefined);
         const useReducer = createReducer(...middlewares);
 
@@ -55,7 +56,7 @@ export default function createReducerContext(...middlewares) {
          * @param action 支持字符串、数组、对象
          * @return 转换后的 state
          */
-        function reducer(state, action) {
+        function reducer(state: State, action: Action): State {
             const {type, payload} = convertActionParam(action);
             return produce(state, draft => {
                 const act = composeActions[type];
@@ -73,7 +74,7 @@ export default function createReducerContext(...middlewares) {
             return <Provider value={state}>{children}</Provider>;
         };
 
-        function useReducerStore() {
+        function useReducerStore(): [State, Dispatch] {
             // 返回 [state, dispatch]
             const state = useContext(StoreContext);
             if (state == null) {

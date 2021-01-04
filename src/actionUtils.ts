@@ -1,15 +1,5 @@
 import isPlainObject from 'lodash/isPlainObject';
-
-type ActionParamString = string;
-
-type ActionParamArray = [string, any];
-
-interface ActionParamObject {
-    type: string;
-    payload?: any;
-}
-
-export type ActionParam = ActionParamString | ActionParamArray | ActionParamObject;
+import {Action, ActionParamObject} from './types';
 
 /**
  * 转换 action 为 {type: 'actionName', payload: xxx} 对象。
@@ -23,7 +13,7 @@ export type ActionParam = ActionParamString | ActionParamArray | ActionParamObje
  * @param action
  * @return {{payload, type: string}|{type: string}|{payload: *, type: string}}
  */
-export function convertActionParam(action: ActionParam): ActionParamObject {
+export function convertActionParam(action: Action): ActionParamObject {
     if (!action) {
         throw new Error('action is required');
     }
