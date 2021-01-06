@@ -1,6 +1,6 @@
 import {createLogger} from 'redux-logger';
 import {convertActionParam} from './actionUtils';
-import {Action} from './types';
+import {Action, Middleware} from './types';
 
 /**
  * 由于 action 的格式可能是 string、array、object，所以这儿重新定义 redux-logger 的标题输出格式。
@@ -26,3 +26,7 @@ const logger = createLogger({
 });
 
 export default logger;
+
+export function createDefaultLogger<State>(): Middleware<State> {
+    return logger as Middleware<State>;
+}
