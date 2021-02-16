@@ -1,5 +1,5 @@
 import React, {Context, createContext, useContext} from 'react';
-import createReducer from 'react-use/esm/createReducer';
+import createReducer from 'react-use/esm/factory/createReducer';
 import produce from 'immer';
 
 import composeReducerActions from './composeReducerActions';
