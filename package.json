@@ -1,6 +1,6 @@
 {
   "name": "@someok/simple-reducer-store",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React reducer context store, redux replace",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -65,7 +65,7 @@
     "lodash": "^4.17.20",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
-    "react-use": "^15.3.4",
+    "react-use": "^17.1.1",
     "redux-logger": "^3.0.6",
     "rimraf": "^3.0.2",
     "tslib": "^2.0.3",
@@ -75,7 +75,7 @@
     "immer": "^8",
     "lodash": "^4",
     "react": "^17.0.0 | ^16.8.0",
-    "react-use": "^15",
+    "react-use": "^17",
     "redux-logger": "^3"
   },
   "files": [
